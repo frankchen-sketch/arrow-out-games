@@ -1,0 +1,16 @@
+{
+  "name": "Arrow Out Games",
+  "short_name": "ArrowOut",
+  "description": "A lightweight browser puzzle site MVP focused on Arrow Out related search demand.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#1f7a5a",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "arrow-out-games-mvp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Static MVP for the Arrow Out browser puzzle validation site.",
+  "scripts": {
+    "verify": "node scripts/verify-site.mjs",
+    "verify:production": "node scripts/verify-site.mjs --production",
+    "preview": "python3 -m http.server 4173 --directory site",
+    "set-domain": "sh ./set-domain.sh"
+  }
+}

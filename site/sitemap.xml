@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.com/</loc>
+  </url>
+  <url>
+    <loc>https://example.com/games/arrow-out.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/games/arrows-go.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/categories/arrow-puzzle-games.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/articles/games-like-arrow-out.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/about.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/privacy-policy.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/terms-of-service.html</loc>
+  </url>
+  <url>
+    <loc>https://example.com/dmca.html</loc>
+  </url>
+</urlset>
