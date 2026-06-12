@@ -656,13 +656,12 @@ function initArrowMaze(root) {
     const level = currentLevel();
     const size = level.grid.length;
     const availableSize = root.clientWidth > 0 ? root.clientWidth - 44 : 320;
-    const cssSize = Math.max(220, Math.min(640, availableSize));
-    const pixelRatio = window.devicePixelRatio || 1;
+    const cssSize = Math.round(Math.max(220, Math.min(640, availableSize)));
     canvas.style.width = `${cssSize}px`;
     canvas.style.height = `${cssSize}px`;
-    canvas.width = Math.round(cssSize * pixelRatio);
-    canvas.height = Math.round(cssSize * pixelRatio);
-    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    canvas.width = cssSize;
+    canvas.height = cssSize;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, cssSize, cssSize);
 
     const cell = cssSize / size;
@@ -723,19 +722,19 @@ function initArrowMaze(root) {
 
     ctx.fillStyle = "#fff4ce";
     ctx.beginPath();
-    ctx.arc(x + cell / 2, y + cell / 2, cell * 0.22, 0, Math.PI * 2);
+    ctx.arc(x + cell / 2, y + cell * 0.38, cell * 0.18, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "#c57a16";
     ctx.beginPath();
-    ctx.arc(x + cell / 2, y + cell / 2, cell * 0.14, 0, Math.PI * 2);
+    ctx.arc(x + cell / 2, y + cell * 0.38, cell * 0.1, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "#7a4e12";
-    ctx.font = `700 ${Math.round(cell * 0.3)}px Georgia, serif`;
+    ctx.font = `700 ${Math.round(cell * 0.28)}px Georgia, serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText("GO", x + cell / 2, y + cell * 0.78);
+    ctx.fillText("GO", x + cell / 2, y + cell * 0.68);
     ctx.restore();
   }
 
@@ -787,9 +786,12 @@ function initArrowMaze(root) {
 
   window.addEventListener("resize", draw);
   state.levelIndex = initialLevelIndex;
-  resetLevel(
+  const initialMessage =
     initialLevelIndex > 0
       ? `Level jump active. Starting on ${currentLevel().name}.`
-      : undefined
-  );
+      : undefined;
+
+  resetLevel(initialMessage);
+  window.requestAnimationFrame(draw);
+  window.addEventListener("load", draw, { once: true });
 }
