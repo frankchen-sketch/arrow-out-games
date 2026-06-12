@@ -443,6 +443,8 @@ function initArrowMaze(root) {
     progress: loadProgress(),
   };
 
+  const initialLevelIndex = getInitialLevelIndex();
+
   function createEmptyProgress() {
     return {
       bestSteps: Array(levels.length).fill(null),
@@ -487,6 +489,20 @@ function initArrowMaze(root) {
 
   function currentLevel() {
     return levels[state.levelIndex];
+  }
+
+  function getInitialLevelIndex() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const requestedLevel = Number(params.get("level"));
+      if (!Number.isInteger(requestedLevel)) {
+        return 0;
+      }
+
+      return Math.min(levels.length - 1, Math.max(0, requestedLevel - 1));
+    } catch {
+      return 0;
+    }
   }
 
   function completionCount() {
@@ -770,5 +786,10 @@ function initArrowMaze(root) {
   });
 
   window.addEventListener("resize", draw);
-  resetLevel();
+  state.levelIndex = initialLevelIndex;
+  resetLevel(
+    initialLevelIndex > 0
+      ? `Level jump active. Starting on ${currentLevel().name}.`
+      : undefined
+  );
 }
