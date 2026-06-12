@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Launch Readiness Preview</title>
+    <meta
+      name="description"
+      content="Internal launch readiness preview for Arrow Games Hub QA, AdSense, production, analytics, and security planning."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#1f7a5a" />
+    <meta property="og:title" content="Launch Readiness Preview" />
+    <meta
+      property="og:description"
+      content="Internal launch readiness preview for Arrow Games Hub QA, AdSense, production, analytics, and security planning."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arrow-out-games.pages.dev/launch-readiness.html" />
+    <meta property="og:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Launch Readiness Preview" />
+    <meta
+      name="twitter:description"
+      content="Internal launch readiness preview for Arrow Games Hub QA, AdSense, production, analytics, and security planning."
+    />
+    <meta name="twitter:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <link rel="canonical" href="https://arrow-out-games.pages.dev/launch-readiness.html" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="/">Arrow Games Hub</a>
+        <span class="preview-label">Internal Preview</span>
+      </div>
+    </header>
+
+    <main class="wrap page-shell">
+      <section class="readiness-hero">
+        <p class="eyebrow">Launch Operations</p>
+        <h1>Launch Readiness Preview</h1>
+        <p class="hero-copy">
+          A working board for the parallel launch tasks around Arrow Maze:
+          QA, AdSense checks, deployment readiness, analytics planning, and the
+          current security funnel decision.
+        </p>
+        <div class="readiness-summary">
+          <span class="status-pill priority-high">QA: Public verification pending</span>
+          <span class="status-pill priority-high">AdSense: Mailbox check pending</span>
+          <span class="status-pill priority-medium">Deploy: Public DNS pending</span>
+          <span class="status-pill priority-low">Analytics: Plan only</span>
+          <span class="status-pill priority-low">Security: No code now</span>
+        </div>
+      </section>
+
+      <section class="readiness-grid" aria-label="Launch readiness task board">
+        <article class="readiness-card" id="qa-mobile-test">
+          <div class="readiness-card-head">
+            <p class="tag">Priority: High</p>
+            <h2>QA / Mobile Test</h2>
+          </div>
+          <dl class="task-meta">
+            <div>
+              <dt>Owner / Branch</dt>
+              <dd>QA validation branch</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Waiting on public-domain run</dd>
+            </div>
+            <div>
+              <dt>Next Action</dt>
+              <dd>Run the QA pass on the current public URL, confirm the Arrow Out coming-soon modal works across devices, and review the balance matrix if the later Arrow Maze levels feel flat or too abrupt.</dd>
+            </div>
+          </dl>
+          <p class="readiness-link-row">
+            Detail doc: <a href="/internal/qa-checklist.html">QA_CHECKLIST.md</a>
+          </p>
+          <p class="readiness-link-row">
+            Balance view: <a href="/internal/arrow-maze-balance.html">Arrow Maze Balance Matrix</a>
+          </p>
+        </article>
+
+        <article class="readiness-card" id="adsense-precheck">
+          <div class="readiness-card-head">
+            <p class="tag">Priority: High</p>
+            <h2>AdSense Precheck</h2>
+          </div>
+          <dl class="task-meta">
+            <div>
+              <dt>Owner / Branch</dt>
+              <dd>Compliance branch</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Waiting on external checks</dd>
+            </div>
+            <div>
+              <dt>Next Action</dt>
+              <dd>Keep the old overview pages noindexed and confirm the currently published contact mailbox receives real external mail.</dd>
+            </div>
+          </dl>
+          <p class="readiness-link-row">
+            Detail doc: <a href="/internal/adsense-precheck.html">ADSENSE_PRECHECK.md</a>
+          </p>
+        </article>
+
+        <article class="readiness-card" id="production-readiness">
+          <div class="readiness-card-head">
+            <p class="tag">Priority: Medium</p>
+            <h2>Production Readiness</h2>
+          </div>
+          <dl class="task-meta">
+            <div>
+              <dt>Owner / Branch</dt>
+              <dd>Deployment branch</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Blocked by public DNS confirmation</dd>
+            </div>
+            <div>
+              <dt>Next Action</dt>
+              <dd>Confirm the current public URL resolves publicly, then rerun the public verification pass.</dd>
+            </div>
+          </dl>
+          <p class="readiness-link-row">
+            Detail doc: <a href="/internal/deploy-checklist.html">DEPLOY_CHECKLIST.md</a>
+          </p>
+        </article>
+
+        <article class="readiness-card" id="analytics-event-plan">
+          <div class="readiness-card-head">
+            <p class="tag">Priority: Low</p>
+            <h2>Analytics Event Plan</h2>
+          </div>
+          <dl class="task-meta">
+            <div>
+              <dt>Owner / Branch</dt>
+              <dd>Growth measurement branch</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Plan only, no SDK</dd>
+            </div>
+            <div>
+              <dt>Next Action</dt>
+              <dd>Keep event names stable so GA4, Plausible, or Cloudflare can be added later.</dd>
+            </div>
+          </dl>
+          <div class="event-list" aria-label="Proposed analytics events">
+            <code>game_view</code>
+            <code>level_start</code>
+            <code>level_complete</code>
+            <code>restart_click</code>
+            <code>next_level_click</code>
+            <code>mobile_control_click</code>
+          </div>
+        </article>
+
+        <article class="readiness-card security-card" id="security-funnel-decision">
+          <div class="readiness-card-head">
+            <p class="tag">Priority: Low</p>
+            <h2>Security Funnel Decision</h2>
+          </div>
+          <dl class="task-meta">
+            <div>
+              <dt>Owner / Branch</dt>
+              <dd>Technical risk branch</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>No extra code now</dd>
+            </div>
+            <div>
+              <dt>Next Action</dt>
+              <dd>Keep the current headers and use manual checks until external services are added.</dd>
+            </div>
+          </dl>
+          <ul class="check-list">
+            <li>Current site is static: no login, forms, payment, or third-party scripts.</li>
+            <li>Existing headers cover nosniff, referrer policy, frame policy, and permissions policy.</li>
+            <li>Do not add security funnel tracking, report endpoints, or external monitoring SDK yet.</li>
+            <li>Revisit when ads, analytics, feedback forms, or external iframe game sources are added.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong>Arrow Games Hub</strong>
+          <p>Internal launch readiness page. Do not include this page in the sitemap.</p>
+        </div>
+        <div>
+          <a href="/">Home</a>
+          <a href="/games/arrow-maze/">Arrow Maze</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy-policy.html">Privacy</a>
+          <a href="/terms-of-service.html">Terms</a>
+          <a href="/dmca.html">DMCA</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal Deploy Checklist - Arrow Games Hub</title>
+    <meta
+      name="description"
+      content="Internal noindex deployment checklist mirror for Cloudflare Pages launch."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#1f7a5a" />
+    <meta property="og:title" content="Internal Deploy Checklist - Arrow Games Hub" />
+    <meta
+      property="og:description"
+      content="Internal noindex deployment checklist mirror for Cloudflare Pages launch."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arrow-out-games.pages.dev/internal/deploy-checklist.html" />
+    <meta property="og:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Internal Deploy Checklist - Arrow Games Hub" />
+    <meta
+      name="twitter:description"
+      content="Internal noindex deployment checklist mirror for Cloudflare Pages launch."
+    />
+    <meta name="twitter:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <link rel="canonical" href="https://arrow-out-games.pages.dev/internal/deploy-checklist.html" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="/">Arrow Games Hub</a>
+        <span class="preview-label">Internal Doc</span>
+      </div>
+    </header>
+
+    <main class="wrap page-shell">
+      <section class="content-block">
+        <p class="eyebrow">Internal Deploy</p>
+        <h1>Deploy Checklist</h1>
+        <p>
+          This page mirrors the current deployment checklist. The detailed working
+          copy is maintained in <code>DEPLOY_CHECKLIST.md</code>.
+        </p>
+      </section>
+
+      <section class="content-block">
+        <h2>Public Launch Path</h2>
+        <ul>
+          <li>Publish first on a Cloudflare Pages default subdomain.</li>
+          <li>Use no build command and keep the output directory set to <code>site</code>.</li>
+          <li>Push the launch-ready branch before creating the Pages project.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Domain and Post-Deploy Checks</h2>
+        <ul>
+          <li>Run <code>npm run set-domain -- https://your-project.pages.dev</code>.</li>
+          <li>Run <code>npm run verify:production</code> after replacing the domain.</li>
+          <li>Confirm the current public URL resolves publicly before treating device QA or AdSense review as complete.</li>
+          <li>Check the homepage, Arrow Maze, Contact, robots, sitemap, and 404 pages.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Email Routing</h2>
+        <ul>
+          <li>For the first <code>pages.dev</code> launch, keep a real mailbox visible on public pages, such as <code>a839500525@126.com</code>.</li>
+          <li>Send a real external test email to the currently published contact mailbox and confirm it is received before launch.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong>Arrow Games Hub</strong>
+          <p>Internal noindex deployment reference page.</p>
+        </div>
+        <div>
+          <a href="/launch-readiness.html">Launch Readiness</a>
+          <a href="/games/arrow-maze/">Arrow Maze</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

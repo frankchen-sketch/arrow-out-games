@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arrow Maze - Play a Free Arrow Puzzle Game Online</title>
+    <meta
+      name="description"
+      content="Play Arrow Maze online for free. Guide the marker through direction arrows, clear fifteen browser puzzle levels, and chase target-step goals."
+    />
+    <meta name="theme-color" content="#1f7a5a" />
+    <meta property="og:title" content="Arrow Maze - Play a Free Arrow Puzzle Game Online" />
+    <meta
+      property="og:description"
+      content="Play Arrow Maze online for free. Guide the marker through direction arrows, clear fifteen browser puzzle levels, and chase target-step goals."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arrow-out-games.pages.dev/games/arrow-maze/" />
+    <meta property="og:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Arrow Maze - Play a Free Arrow Puzzle Game Online" />
+    <meta
+      name="twitter:description"
+      content="Play Arrow Maze online for free. Guide the marker through direction arrows, clear fifteen browser puzzle levels, and chase target-step goals."
+    />
+    <meta name="twitter:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <link rel="canonical" href="https://arrow-out-games.pages.dev/games/arrow-maze/" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="/">Arrow Games Hub</a>
+        <nav class="top-nav">
+          <a href="/games/arrow-maze/" aria-current="page">Arrow Maze</a>
+          <a href="/games/arrow-out.html" data-coming-soon="arrow-out">Arrow Out</a>
+          <a href="/games/arrows-go.html">Arrows Go</a>
+          <a href="/categories/arrow-puzzle-games.html">Arrow Puzzle Games</a>
+          <a href="/articles/games-like-arrow-out.html">Similar Games</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap page-shell">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/categories/arrow-puzzle-games.html">Arrow Puzzle Games</a>
+        <span>/</span>
+        <span>Arrow Maze</span>
+      </nav>
+
+      <section class="game-hero">
+        <div class="game-stage">
+          <p class="eyebrow">Original browser game</p>
+          <h1>Arrow Maze</h1>
+          <p class="lede">
+            Arrow Maze is a compact direction puzzle where every square tells you
+            which way you are allowed to move. Read the route, follow the arrows,
+            and guide the marker to the finish across fifteen hand-built levels.
+            Every board now has a target-step route, so the challenge is not only
+            to finish but to finish cleanly.
+          </p>
+
+          <div class="arrow-maze" data-arrow-maze>
+            <div class="maze-hud" aria-live="polite">
+              <span>Level <strong data-maze-level>1</strong>/15</span>
+              <span>Steps <strong data-maze-steps>0</strong></span>
+              <span>Target <strong data-maze-goal>8</strong></span>
+              <span>Clears <strong data-maze-complete>0</strong>/15</span>
+              <span>Goals <strong data-maze-perfect>0</strong>/15</span>
+            </div>
+            <canvas
+              class="maze-canvas"
+              data-maze-canvas
+              width="640"
+              height="640"
+              aria-label="Arrow Maze game board"
+              role="img"
+            ></canvas>
+            <p class="maze-status" data-maze-status>
+              Use arrow keys or the on-screen buttons to move.
+            </p>
+            <div class="maze-actions">
+              <button class="button button-secondary" type="button" data-maze-restart>
+                Restart
+              </button>
+              <button class="button button-primary" type="button" data-maze-next disabled>
+                Next Level
+              </button>
+            </div>
+            <div class="maze-controls" aria-label="Mobile direction controls">
+              <button type="button" aria-label="Move up" data-maze-move="up">↑</button>
+              <button type="button" aria-label="Move left" data-maze-move="left">←</button>
+              <button type="button" aria-label="Move down" data-maze-move="down">↓</button>
+              <button type="button" aria-label="Move right" data-maze-move="right">→</button>
+            </div>
+          </div>
+
+          <div class="meta-row">
+            <span class="pill">Arrow puzzle</span>
+            <span class="pill">Original game</span>
+            <span class="pill">Keyboard friendly</span>
+            <span class="pill">Mobile controls</span>
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <h2>Quick Answers</h2>
+          <ul>
+            <li>Free to play: Yes</li>
+            <li>Download required: No</li>
+            <li>Levels included: 15</li>
+            <li>Target-step goals: Yes</li>
+            <li>External game source: No</li>
+          </ul>
+          <div
+            class="ad-slot ad-slot-sidebar ad-slot-desktop-only"
+            data-ad-slot="maze-sidebar-1"
+            data-ad-format="display"
+          ></div>
+        </aside>
+      </section>
+
+      <section class="ad-slot-row" aria-label="Advertising preview placement">
+        <div class="ad-slot ad-slot-inline" data-ad-slot="maze-inline-1" data-ad-format="display"></div>
+      </section>
+
+      <section class="content-grid">
+        <article class="content-main">
+          <section class="content-block">
+            <h2>What is Arrow Maze?</h2>
+            <p>
+              Arrow Maze is a free browser puzzle game about reading direction
+              rules before you move. The board is made of simple square tiles,
+              and most tiles contain an arrow. When your marker stands on an
+              arrow tile, that arrow shows the only direction you can travel
+              next. The challenge is to understand the path, avoid wasting moves,
+              and reach the target square without guessing.
+            </p>
+            <p>
+              Think of each level as a small route-planning problem: read the
+              whole board first, then choose the move you can explain.
+            </p>
+            <p>
+              This first version is intentionally focused. It keeps the arrow
+              puzzle theme playable while keeping the rules clear enough for
+              quick desktop and mobile sessions.
+            </p>
+          </section>
+
+          <section class="content-block">
+            <h2>How to Play</h2>
+            <ol>
+              <li>Start on the green marker at the edge of the maze.</li>
+              <li>Look at the arrow under your marker before choosing a move.</li>
+              <li>Move only in the direction allowed by the current tile.</li>
+              <li>Use careful timing near blank tiles, because they allow any direction.</li>
+              <li>Reach the gold finish square to complete the level and compare your step count to the target.</li>
+            </ol>
+            <p>
+              Each level is short enough to retry, but the full run now lasts
+              much longer than the original launch build. Later boards ask you
+              to read longer sequences, deal with more fake exits, and recover
+              from tempting star tiles that open the wrong branch. If a move does
+              not work, it usually means the arrow on your current tile points
+              somewhere else, or the move would leave the board.
+            </p>
+            <p>
+              Do not rush the first move. A quick look often reveals where arrows
+              loop back, where blank tiles can waste steps, and which path stays
+              open toward the finish.
+            </p>
+          </section>
+
+          <section class="content-block">
+            <h2>Controls</h2>
+            <ul>
+              <li>Keyboard: Use the arrow keys to move up, down, left, or right.</li>
+              <li>Touch: Use the four on-screen arrow buttons below the board.</li>
+              <li>Restart: Reset the current level and return to its start tile.</li>
+              <li>Next Level: Unlocks after you reach the finish square.</li>
+              <li>Replay Run: Unlocks after level fifteen so you can improve your goal count.</li>
+            </ul>
+            <p>
+              Arrow Maze is designed to stay readable on small screens. The board
+              scales to the page width, while the touch controls remain large
+              enough for normal mobile play. The HUD keeps the target-step number,
+              total clears, and total goal clears visible without opening menus.
+            </p>
+          </section>
+
+          <section class="content-block">
+            <h2>Tips and Strategy</h2>
+            <p>
+              The best way to solve Arrow Maze is to trace the route with your
+              eyes before moving. Do not only look at the next square. Look two or
+              three arrows ahead and ask where the chain will send you. A move
+              that looks correct can still trap you if the next arrow points back
+              into a loop.
+            </p>
+            <p>
+              Blank tiles are useful because they give you a free choice of
+              direction. Treat them as planning spaces. When a level includes a
+              blank tile, use it to turn toward the route that leads closer to the
+              finish rather than simply continuing in the same direction. If you
+              want to hit the target-step goal, watch for extra moves around fake
+              corners. A board can be solvable in one pass and still miss the goal
+              by two or three wasted turns.
+            </p>
+          </section>
+
+          <section class="content-block">
+            <h2>Why Play Arrow Maze?</h2>
+            <p>
+              Arrow Maze fits players who enjoy small logic puzzles, direction
+              games, and quick browser challenges. It has no download and no
+              account requirement. That makes it easy to play for a minute
+              between tasks while still giving each level a clear objective.
+            </p>
+            <p>
+              The game also supports the wider arrow puzzle theme of this site.
+              Instead of relying only on placeholder pages, Arrow Maze gives the
+              site a real playable experience that can be improved over time with
+              longer runs, stronger difficulty ramps, cleaner targets, and replay
+              incentives built around better route planning.
+            </p>
+          </section>
+
+          <section class="content-block">
+            <h2>FAQ</h2>
+            <details>
+              <summary>Can I play Arrow Maze for free?</summary>
+              <p>Yes. Arrow Maze is free to play in your browser with no required download.</p>
+            </details>
+            <details>
+              <summary>Is Arrow Maze an original game?</summary>
+              <p>
+                Yes. This version is an original Canvas game built for this site.
+                It does not embed an external game source.
+              </p>
+            </details>
+            <details>
+              <summary>Does Arrow Maze work on mobile?</summary>
+              <p>
+                Yes. The page includes on-screen direction buttons so the game can
+                be played on phones and tablets.
+              </p>
+            </details>
+            <details>
+              <summary>How many levels are included?</summary>
+              <p>
+                The current build includes fifteen fixed levels with a steeper
+                difficulty ramp than the first launch version.
+              </p>
+            </details>
+            <details>
+              <summary>Do I need to download anything or create an account?</summary>
+              <p>
+                No. Arrow Maze runs directly in the browser and does not require
+                a download, sign-up, or login.
+              </p>
+            </details>
+            <details>
+              <summary>Why did my move not work?</summary>
+              <p>
+                Most tiles only allow movement in the direction shown by the arrow.
+                A move also fails if it would go outside the board.
+              </p>
+            </details>
+            <details>
+              <summary>Can I use the keyboard?</summary>
+              <p>
+                Yes. Desktop players can use the keyboard arrow keys. Mobile
+                players can use the visible touch controls.
+              </p>
+            </details>
+            <details>
+              <summary>Will more levels be added later?</summary>
+              <p>
+                More levels may be added in future updates, but the current
+                public build already supports a longer replay-focused run with
+                fifteen hand-built stages.
+              </p>
+            </details>
+            <details>
+              <summary>What are the target-step goals for?</summary>
+              <p>
+                Each board has a minimum target to chase. Finishing a level is
+                the first win, but hitting the target gives the run its replay
+                value because you can come back and improve your route count.
+              </p>
+            </details>
+            <details>
+              <summary>Do I need a level select menu?</summary>
+              <p>
+                No. Arrow Maze is built as a forward run. You move board to
+                board in sequence, then use Replay Run after the final stage to
+                improve your goal clears without navigating a level selector.
+              </p>
+            </details>
+          </section>
+
+          <section class="ad-slot-row" aria-label="Advertising preview placement">
+            <div class="ad-slot ad-slot-inline" data-ad-slot="maze-inline-2" data-ad-format="display"></div>
+          </section>
+        </article>
+
+        <aside class="content-side">
+          <section class="content-block">
+            <h2>Related Arrow Games</h2>
+            <ul class="link-list">
+              <li><a href="/games/arrows-go.html">Arrows Go</a></li>
+              <li><a href="/categories/arrow-puzzle-games.html">More Arrow Puzzle Games</a></li>
+              <li><a href="/articles/games-like-arrow-out.html">Games Like Arrow Out</a></li>
+              <li><a href="/games/arrow-out.html" data-coming-soon="arrow-out">Arrow Out</a></li>
+            </ul>
+          </section>
+
+          <section class="content-block">
+            <h2>Credits / License</h2>
+            <p>
+              Arrow Maze is an original browser game built for this site; no
+              external game source used. The board, arrows, player marker, and
+              finish tile are drawn with site-owned Canvas code.
+            </p>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong>Arrow Games Hub</strong>
+          <p>A lightweight browser puzzle site with original arrow-themed play.</p>
+        </div>
+        <div>
+          <a href="/contact.html">Contact</a>
+          <a href="/games/arrow-maze/">Arrow Maze</a>
+          <a href="/games/arrows-go.html">Arrows Go</a>
+          <a href="/categories/arrow-puzzle-games.html">Category</a>
+          <a href="/games/arrow-out.html" data-coming-soon="arrow-out">Arrow Out</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/dmca.html">DMCA</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>

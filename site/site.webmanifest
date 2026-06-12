@@ -1,7 +1,7 @@
 {
-  "name": "Arrow Out Games",
-  "short_name": "ArrowOut",
-  "description": "A lightweight browser puzzle site MVP focused on Arrow Out related search demand.",
+  "name": "Arrow Games Hub",
+  "short_name": "Arrow Hub",
+  "description": "A lightweight browser puzzle site focused on original arrow-themed games.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f4f1e8",

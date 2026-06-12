@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal QA Checklist - Arrow Games Hub</title>
+    <meta
+      name="description"
+      content="Internal noindex QA checklist mirror for Arrow Maze launch validation."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#1f7a5a" />
+    <meta property="og:title" content="Internal QA Checklist - Arrow Games Hub" />
+    <meta
+      property="og:description"
+      content="Internal noindex QA checklist mirror for Arrow Maze launch validation."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arrow-out-games.pages.dev/internal/qa-checklist.html" />
+    <meta property="og:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Internal QA Checklist - Arrow Games Hub" />
+    <meta
+      name="twitter:description"
+      content="Internal noindex QA checklist mirror for Arrow Maze launch validation."
+    />
+    <meta name="twitter:image" content="https://arrow-out-games.pages.dev/assets/og-card.svg" />
+    <link rel="canonical" href="https://arrow-out-games.pages.dev/internal/qa-checklist.html" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="/">Arrow Games Hub</a>
+        <span class="preview-label">Internal Doc</span>
+      </div>
+    </header>
+
+    <main class="wrap page-shell">
+      <section class="content-block">
+        <p class="eyebrow">Internal QA</p>
+        <h1>Arrow Maze QA Checklist</h1>
+        <p>
+          This page mirrors the current QA checklist for launch review. The
+          detailed working copy is maintained in <code>QA_CHECKLIST.md</code>.
+        </p>
+      </section>
+
+      <section class="content-block">
+        <h2>Public Availability</h2>
+        <ul>
+          <li>Open the current public URL, for example <code>https://your-project.pages.dev/</code>, and confirm the homepage resolves publicly.</li>
+          <li>Open the current public game URL, for example <code>https://your-project.pages.dev/games/arrow-maze/</code>, and confirm the live game page resolves publicly.</li>
+          <li>Open Contact, robots, sitemap, and 404 URLs on the public domain.</li>
+          <li>Treat unresolved public DNS, failed HTTPS loading, or mismatched public content as a launch blocker.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Core Playable Page</h2>
+        <ul>
+          <li>Open <a href="/games/arrow-maze/">/games/arrow-maze/</a> on desktop Chrome or Safari.</li>
+          <li>Confirm arrow keys, Restart, Next Level, Replay Run, and all fifteen levels behave correctly.</li>
+          <li>Confirm the status text updates after invalid moves, open tiles, and wins.</li>
+          <li>Confirm every public Arrow Out entry opens the same coming-soon modal instead of a placeholder play box.</li>
+          <li>Confirm the modal Play Arrow Maze action opens <code>/games/arrow-maze/</code>.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Mobile and Narrow Screens</h2>
+        <ul>
+          <li>Confirm the canvas stays inside the page width.</li>
+          <li>Confirm the mobile direction buttons are visible and clickable.</li>
+          <li>Confirm the game controls and article content do not overlap.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Site Integrity</h2>
+        <ul>
+          <li>Run <code>npm run verify</code> and <code>npm run verify:arrow-maze</code>.</li>
+          <li>Confirm Contact, About, Privacy, Terms, and DMCA all load and link correctly.</li>
+          <li>Confirm Arrow Out and Arrows Go remain overview pages rather than fake play pages.</li>
+          <li>Confirm public-domain checks are complete before treating local verification as final.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong>Arrow Games Hub</strong>
+          <p>Internal noindex QA reference page.</p>
+        </div>
+        <div>
+          <a href="/launch-readiness.html">Launch Readiness</a>
+          <a href="/games/arrow-maze/">Arrow Maze</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

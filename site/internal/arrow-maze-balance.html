@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arrow Maze Balance Matrix - Internal</title>
+    <meta
+      name="description"
+      content="Internal noindex balance matrix for Arrow Maze difficulty factors and curve review."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#1f7a5a" />
+    <meta property="og:title" content="Arrow Maze Balance Matrix - Internal" />
+    <meta
+      property="og:description"
+      content="Internal noindex balance matrix for Arrow Maze difficulty factors and curve review."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arrowhub.com/internal/arrow-maze-balance.html" />
+    <meta property="og:image" content="https://arrowhub.com/assets/og-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Arrow Maze Balance Matrix - Internal" />
+    <meta
+      name="twitter:description"
+      content="Internal noindex balance matrix for Arrow Maze difficulty factors and curve review."
+    />
+    <meta name="twitter:image" content="https://arrowhub.com/assets/og-card.svg" />
+    <link rel="canonical" href="https://arrowhub.com/internal/arrow-maze-balance.html" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="/">Arrow Games Hub</a>
+        <span class="preview-label">Internal Doc</span>
+      </div>
+    </header>
+
+    <main class="wrap page-shell">
+      <section class="content-block">
+        <p class="eyebrow">Internal Balance</p>
+        <h1>Arrow Maze Balance Matrix</h1>
+        <p>
+          This page is a quick-read view of the current Arrow Maze difficulty
+          curve. It is meant to answer a practical balancing question: what makes
+          a level feel harder, and where does that pressure come from?
+        </p>
+        <p>
+          The source script is <code>npm run analyze:arrow-maze</code>. Use the
+          script when the live level set changes, then update this page to match
+          the current build.
+        </p>
+      </section>
+
+      <section class="metric-grid">
+        <article class="metric-card">
+          <h2>Route Length</h2>
+          <p>The shortest valid path. This is the base memory and execution load.</p>
+        </article>
+        <article class="metric-card">
+          <h2>Turns</h2>
+          <p>How often the optimal route changes direction. More turns usually means more rereads.</p>
+        </article>
+        <article class="metric-card">
+          <h2>Open On Path</h2>
+          <p>How many free-choice star tiles appear on the optimal route. These create live decision pressure.</p>
+        </article>
+        <article class="metric-card">
+          <h2>False Edges</h2>
+          <p>How many wrong exits branch away from those star tiles. This is the cleanest decoy signal.</p>
+        </article>
+        <article class="metric-card">
+          <h2>Board Area</h2>
+          <p>Total squares to scan. Bigger boards increase search load even before the player moves.</p>
+        </article>
+      </section>
+
+      <section class="content-block">
+        <h2>Curve Read</h2>
+        <ul class="check-list">
+          <li>Levels 1-5 stay as warm-up route readers: short paths, small boards, and low branch noise.</li>
+          <li>Levels 6-11 now form the main decision band, where star-tile choices and wrong exits start to matter.</li>
+          <li>Levels 12-15 split the endgame into different pressure types: turn-heavy boards, one major branch-pressure spike, then a long final route.</li>
+          <li>If a later level feels weak in playtesting, compare whether its route length rose without enough turn pressure or false-edge cost.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Level Matrix</h2>
+        <div class="table-wrap">
+          <table class="analysis-table">
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Route</th>
+                <th>Area</th>
+                <th>Turns</th>
+                <th>Open</th>
+                <th>Open On Path</th>
+                <th>False Edges</th>
+                <th>Primary Pressure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>First Route</td><td>8</td><td>25</td><td>4</td><td>0</td><td>0</td><td>0</td><td>Route reading</td></tr>
+              <tr><td>2</td><td>Corner Reading</td><td>9</td><td>36</td><td>5</td><td>0</td><td>0</td><td>0</td><td>Route reading</td></tr>
+              <tr><td>3</td><td>Open Turn</td><td>9</td><td>36</td><td>5</td><td>1</td><td>1</td><td>2</td><td>Route reading</td></tr>
+              <tr><td>4</td><td>Final Choices</td><td>9</td><td>49</td><td>6</td><td>2</td><td>0</td><td>0</td><td>Route reading</td></tr>
+              <tr><td>5</td><td>Long Chain</td><td>10</td><td>49</td><td>5</td><td>0</td><td>0</td><td>0</td><td>Route reading</td></tr>
+              <tr><td>6</td><td>Twin Stars</td><td>11</td><td>49</td><td>5</td><td>3</td><td>3</td><td>6</td><td>Choice timing</td></tr>
+              <tr><td>7</td><td>Switchback</td><td>12</td><td>36</td><td>8</td><td>3</td><td>3</td><td>6</td><td>Choice timing</td></tr>
+              <tr><td>8</td><td>Fork Count</td><td>12</td><td>64</td><td>6</td><td>4</td><td>4</td><td>8</td><td>Choice timing</td></tr>
+              <tr><td>9</td><td>Loop Breaker</td><td>13</td><td>49</td><td>9</td><td>3</td><td>3</td><td>5</td><td>Choice timing</td></tr>
+              <tr><td>10</td><td>False Dock</td><td>15</td><td>42</td><td>9</td><td>2</td><td>2</td><td>3</td><td>Choice timing</td></tr>
+              <tr><td>11</td><td>Pressure Lane</td><td>15</td><td>56</td><td>8</td><td>4</td><td>4</td><td>7</td><td>Choice timing</td></tr>
+              <tr><td>12</td><td>Long Signal</td><td>15</td><td>72</td><td>10</td><td>5</td><td>4</td><td>8</td><td>Turn pressure</td></tr>
+              <tr><td>13</td><td>Last Relay</td><td>16</td><td>81</td><td>9</td><td>6</td><td>5</td><td>9</td><td>Branch pressure</td></tr>
+              <tr><td>14</td><td>Spiral Exit</td><td>18</td><td>81</td><td>12</td><td>5</td><td>4</td><td>6</td><td>Turn pressure</td></tr>
+              <tr><td>15</td><td>Backtrack Wall</td><td>21</td><td>64</td><td>14</td><td>0</td><td>0</td><td>0</td><td>Turn pressure</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-block">
+        <h2>How to Use This</h2>
+        <ul class="check-list">
+          <li>If a level feels too easy, raise either route length or false-edge pressure; doing only one often produces flatter difficulty.</li>
+          <li>If a level feels annoying rather than smart, check whether turns and false edges both spiked at once.</li>
+          <li>If the late game feels repetitive, vary the pressure source instead of only making the route longer.</li>
+          <li>The current pass intentionally makes level 15 a cleaner turn-pressure finale rather than another branch-heavy board.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong>Arrow Games Hub</strong>
+          <p>Internal noindex balance reference page.</p>
+        </div>
+        <div>
+          <a href="/launch-readiness.html">Launch Readiness</a>
+          <a href="/internal/qa-checklist.html">QA Checklist</a>
+          <a href="/games/arrow-maze/">Arrow Maze</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

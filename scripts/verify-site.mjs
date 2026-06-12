@@ -39,9 +39,6 @@ function walk(dir) {
     }
     if (/\.html$/u.test(entry.name)) {
       htmlFiles.push(fullPath);
-      if (entry.name !== "404.html") {
-        indexableHtmlFiles.push(fullPath);
-      }
     }
   }
 }
@@ -72,6 +69,14 @@ function resolveLocalTarget(fromFile, rawTarget) {
   return path.resolve(path.dirname(fromFile), sitePath);
 }
 
+function isWithinSiteRoot(targetPath) {
+  const relativePath = path.relative(rootDir, targetPath);
+  return (
+    (relativePath === "" || !relativePath.startsWith("..")) &&
+    !path.isAbsolute(relativePath)
+  );
+}
+
 function resolveAbsoluteUrlTarget(rawTarget) {
   try {
     const url = new URL(rawTarget);
@@ -86,6 +91,13 @@ walk(rootDir);
 
 for (const file of htmlFiles) {
   const source = fs.readFileSync(file, "utf8");
+  const hasNoindexMeta = /<meta\s+name="robots"\s+content="[^"]*\bnoindex\b[^"]*"/iu.test(
+    source
+  );
+
+  if (path.basename(file) !== "404.html" && !hasNoindexMeta) {
+    indexableHtmlFiles.push(file);
+  }
 
   if (!source.includes("<link rel=\"canonical\"")) {
     issues.push(`[canonical] Missing canonical tag in ${rel(file)}`);
@@ -131,6 +143,11 @@ for (const file of htmlFiles) {
     const target = match[1];
     const resolved = resolveLocalTarget(file, target);
     if (!resolved) continue;
+
+    if (!isWithinSiteRoot(resolved)) {
+      issues.push(`[link] Local target escapes site root from ${rel(file)} -> ${target}`);
+      continue;
+    }
 
     if (!fs.existsSync(resolved)) {
       issues.push(`[link] Missing local target from ${rel(file)} -> ${target}`);

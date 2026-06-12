@@ -4,9 +4,12 @@
   "version": "0.1.0",
   "description": "Static MVP for the Arrow Out browser puzzle validation site.",
   "scripts": {
-    "verify": "node scripts/verify-site.mjs",
+    "verify": "node scripts/verify-site.mjs && node scripts/verify-arrow-maze.mjs",
+    "verify:site": "node scripts/verify-site.mjs",
+    "verify:arrow-maze": "node scripts/verify-arrow-maze.mjs",
+    "analyze:arrow-maze": "node scripts/analyze-arrow-maze.mjs",
     "verify:production": "node scripts/verify-site.mjs --production",
-    "preview": "python3 -m http.server 4173 --directory site",
+    "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory site",
     "set-domain": "sh ./set-domain.sh"
   }
 }
