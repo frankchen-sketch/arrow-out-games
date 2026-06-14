@@ -9,6 +9,10 @@ This checklist is the pre-submission validation pass for the current public buil
 - Open the current public Contact, `robots.txt`, `sitemap.xml`, and `404.html` URLs.
 - Treat unresolved public DNS, failed HTTPS loading, or mismatched public content as a launch blocker.
 
+Current public note:
+- Public Pages deployment is live.
+- Level 10 finish visibility has been confirmed on the public build after the rectangular-board rendering fix.
+
 ## Core playable page
 
 - Open `/games/arrow-maze/` on desktop Chrome or Safari.
@@ -27,6 +31,8 @@ This checklist is the pre-submission validation pass for the current public buil
 - Open `/games/arrow-maze/` on a narrow mobile viewport.
 - Confirm the canvas stays inside the page width.
 - Confirm the mobile direction buttons are visible and clickable.
+- Confirm repeated taps on the mobile direction buttons do not trigger browser zoom.
+- Confirm touching the Arrow Maze control area does not drag the page away from the game surface.
 - Confirm the game controls and article content do not overlap.
 - Confirm the footer links remain readable and tappable.
 
@@ -44,3 +50,4 @@ This checklist is the pre-submission validation pass for the current public buil
 - `Arrow Maze` is the only real playable game in the current review build.
 - `Arrow Out` and `Arrows Go` should remain `noindex, follow` until they gain stronger content or real gameplay.
 - Public-domain reachability and cross-device QA on the current public URL are required before submission.
+- The current highest-priority regression watch item is the mobile touch-control retest after the anti-zoom / anti-drag fix deploys.

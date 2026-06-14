@@ -16,6 +16,10 @@ This document is the source of truth for public launch, Pages deployment, and do
 - Create the Cloudflare Pages project from the GitHub repository.
 - Confirm the first deployment completes successfully.
 
+Current public note:
+- The site is already live on a Cloudflare Pages public subdomain.
+- Post-deploy verification, not first-project setup, is now the active deploy track.
+
 ## Public URL replacement
 
 - Choose the first public URL, which can be the Cloudflare Pages subdomain.
@@ -35,6 +39,7 @@ This document is the source of truth for public launch, Pages deployment, and do
 
 - Open the homepage, `/games/arrow-maze/`, `/contact.html`, `/robots.txt`, `/sitemap.xml`, and `/404.html`.
 - Confirm HTTPS is active and assets load without 404s.
+- Confirm the live Arrow Maze page includes the rectangular-board rendering fix and current asset-cache-busting URLs.
 - Confirm `Arrow Out` and `Arrows Go` are not present in the sitemap.
 - Confirm the internal `launch-readiness.html` page is not present in the sitemap.
 
