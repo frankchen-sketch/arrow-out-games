@@ -713,28 +713,42 @@ function initArrowMaze(root) {
 
   function drawFinish(x, y, cell) {
     ctx.save();
-    ctx.fillStyle = "#f4c95d";
+    ctx.fillStyle = "#f3c552";
     ctx.fillRect(x, y, cell, cell);
+
+    ctx.fillStyle = "#fff7da";
+    ctx.fillRect(x + cell * 0.08, y + cell * 0.08, cell * 0.84, cell * 0.84);
 
     ctx.strokeStyle = "#7a4e12";
     ctx.lineWidth = Math.max(2, cell * 0.05);
     ctx.strokeRect(x + cell * 0.08, y + cell * 0.08, cell * 0.84, cell * 0.84);
 
+    ctx.fillStyle = "#7a4e12";
+    ctx.fillRect(x + cell * 0.24, y + cell * 0.16, cell * 0.04, cell * 0.44);
+
+    ctx.fillStyle = "#d8593f";
+    ctx.beginPath();
+    ctx.moveTo(x + cell * 0.28, y + cell * 0.18);
+    ctx.lineTo(x + cell * 0.62, y + cell * 0.24);
+    ctx.lineTo(x + cell * 0.28, y + cell * 0.38);
+    ctx.closePath();
+    ctx.fill();
+
     ctx.fillStyle = "#fff4ce";
     ctx.beginPath();
-    ctx.arc(x + cell / 2, y + cell * 0.38, cell * 0.18, 0, Math.PI * 2);
+    ctx.arc(x + cell * 0.64, y + cell * 0.42, cell * 0.16, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "#c57a16";
     ctx.beginPath();
-    ctx.arc(x + cell / 2, y + cell * 0.38, cell * 0.1, 0, Math.PI * 2);
+    ctx.arc(x + cell * 0.64, y + cell * 0.42, cell * 0.09, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = "#7a4e12";
-    ctx.font = `700 ${Math.round(cell * 0.28)}px Georgia, serif`;
+    ctx.fillStyle = "#6b4615";
+    ctx.font = `900 ${Math.round(cell * 0.26)}px Arial, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText("GO", x + cell / 2, y + cell * 0.68);
+    ctx.fillText("GO", x + cell / 2, y + cell * 0.76);
     ctx.restore();
   }
 
