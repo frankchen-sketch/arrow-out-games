@@ -26,6 +26,16 @@ function extractLevels(source) {
   }
 }
 
+function extractDrawBody(source) {
+  const match = source.match(/function draw\(\) \{([\s\S]*?)\n  \}\n\n  function drawArrow/u);
+  if (!match) {
+    fail("Could not find Arrow Maze draw() in site/assets/app.js");
+    return "";
+  }
+
+  return match[1];
+}
+
 function solveLevel(level) {
   const directionMap = {
     U: [0, -1, "ArrowUp"],
@@ -115,16 +125,31 @@ if (!fs.existsSync(appScriptPath)) {
 } else {
   const source = fs.readFileSync(appScriptPath, "utf8");
   const levels = extractLevels(source);
+  const drawBody = extractDrawBody(source);
 
   if (levels.length !== 15) {
     fail(`Arrow Maze should include 15 levels, found ${levels.length}`);
   }
 
+  if (!drawBody.includes("const rows = level.grid.length;")) {
+    fail("draw() should derive the row count from the current level grid");
+  }
+
+  if (!drawBody.includes("const cols = Math.max(...level.grid.map((row) => row.length));")) {
+    fail("draw() should derive the column count from the current level grid");
+  }
+
   levels.forEach((level, index) => {
     const label = level.name || `Level ${index + 1}`;
+    const rowWidths = level.grid.map((row) => row.length);
+    const width = rowWidths[0];
     const finishTile = level.grid[level.finish?.[1]]?.[level.finish?.[0]];
     if (finishTile !== "G") {
       fail(`${label} finish coordinate should point to a G tile`);
+    }
+
+    if (!rowWidths.every((rowWidth) => rowWidth === width)) {
+      fail(`${label} should use a rectangular grid with consistent row widths`);
     }
 
     const solution = solveLevel(level);

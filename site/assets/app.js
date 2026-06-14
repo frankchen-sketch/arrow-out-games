@@ -654,22 +654,25 @@ function initArrowMaze(root) {
 
   function draw() {
     const level = currentLevel();
-    const size = level.grid.length;
+    const rows = level.grid.length;
+    const cols = Math.max(...level.grid.map((row) => row.length));
     const availableSize = root.clientWidth > 0 ? root.clientWidth - 44 : 320;
-    const cssSize = Math.round(Math.max(220, Math.min(640, availableSize)));
-    canvas.style.width = `${cssSize}px`;
-    canvas.style.height = `${cssSize}px`;
-    canvas.width = cssSize;
-    canvas.height = cssSize;
+    const maxBoardSize = Math.round(Math.max(220, Math.min(640, availableSize)));
+    const cell = maxBoardSize / Math.max(rows, cols);
+    const canvasWidth = Math.round(cell * cols);
+    const canvasHeight = Math.round(cell * rows);
+    canvas.style.width = `${canvasWidth}px`;
+    canvas.style.height = `${canvasHeight}px`;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, cssSize, cssSize);
-
-    const cell = cssSize / size;
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     ctx.lineWidth = 1;
 
-    for (let y = 0; y < size; y += 1) {
-      for (let x = 0; x < size; x += 1) {
+    for (let y = 0; y < rows; y += 1) {
+      for (let x = 0; x < cols; x += 1) {
         const tile = level.grid[y][x];
+        if (!tile) continue;
         const px = x * cell;
         const py = y * cell;
         ctx.fillStyle = tile === "G" ? "#f4c95d" : (x + y) % 2 ? "#f8f3e6" : "#fffdf7";
