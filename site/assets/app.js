@@ -193,6 +193,8 @@ function initArrowMaze(root) {
   const statusEl = root.querySelector("[data-maze-status]");
   const restartButton = root.querySelector("[data-maze-restart]");
   const nextButton = root.querySelector("[data-maze-next]");
+  const actionsEl = root.querySelector(".maze-actions");
+  const controlsEl = root.querySelector(".maze-controls");
   const storageKey = "arrow-maze-progress-v2";
 
   if (!canvas) return;
@@ -652,6 +654,48 @@ function initArrowMaze(root) {
     }[mark] || "nowhere";
   }
 
+  function preventDefaultIfPossible(event) {
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+  }
+
+  function bindPress(button, handler) {
+    if (!button) return;
+
+    let suppressClickUntil = 0;
+
+    if (window.PointerEvent) {
+      button.addEventListener("pointerup", (event) => {
+        if (event.pointerType === "mouse") return;
+        preventDefaultIfPossible(event);
+        suppressClickUntil = Date.now() + 700;
+        handler();
+      });
+    } else {
+      button.addEventListener(
+        "touchend",
+        (event) => {
+          preventDefaultIfPossible(event);
+          suppressClickUntil = Date.now() + 700;
+          handler();
+        },
+        { passive: false }
+      );
+    }
+
+    button.addEventListener("click", (event) => {
+      if (Date.now() < suppressClickUntil) {
+        preventDefaultIfPossible(event);
+        return;
+      }
+
+      handler();
+    });
+
+    button.addEventListener("dblclick", preventDefaultIfPossible);
+  }
+
   function draw() {
     const level = currentLevel();
     const rows = level.grid.length;
@@ -773,8 +817,8 @@ function initArrowMaze(root) {
     ctx.stroke();
   }
 
-  restartButton?.addEventListener("click", () => resetLevel("Level restarted."));
-  nextButton?.addEventListener("click", () => {
+  bindPress(restartButton, () => resetLevel("Level restarted."));
+  bindPress(nextButton, () => {
     if (!state.won) return;
     if (state.levelIndex === levels.length - 1) {
       state.levelIndex = 0;
@@ -786,8 +830,28 @@ function initArrowMaze(root) {
   });
 
   root.querySelectorAll("[data-maze-move]").forEach((button) => {
-    button.addEventListener("click", () => move(button.dataset.mazeMove));
+    bindPress(button, () => move(button.dataset.mazeMove));
   });
+
+  [canvas, actionsEl, controlsEl].forEach((element) => {
+    if (!element) return;
+    element.addEventListener("dblclick", preventDefaultIfPossible);
+    element.addEventListener(
+      "touchmove",
+      (event) => {
+        preventDefaultIfPossible(event);
+      },
+      { passive: false }
+    );
+  });
+
+  canvas.addEventListener(
+    "touchstart",
+    (event) => {
+      preventDefaultIfPossible(event);
+    },
+    { passive: false }
+  );
 
   document.addEventListener("keydown", (event) => {
     const keyMap = {

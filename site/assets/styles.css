@@ -413,6 +413,7 @@ h2 {
   border-radius: var(--radius);
   box-shadow: var(--card-shadow);
   margin-top: 20px;
+  overscroll-behavior: contain;
   padding: 18px;
 }
 
@@ -433,6 +434,7 @@ h2 {
   font-size: 0.95rem;
   margin-bottom: 14px;
   padding: 10px 12px;
+  touch-action: manipulation;
 }
 
 .maze-hud span {
@@ -455,7 +457,10 @@ h2 {
   height: auto;
   margin: 0 auto;
   max-width: 100%;
-  touch-action: manipulation;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .maze-status {
@@ -467,6 +472,7 @@ h2 {
 .maze-actions {
   justify-content: flex-start;
   margin-top: 14px;
+  touch-action: manipulation;
 }
 
 .button:disabled {
@@ -481,8 +487,10 @@ h2 {
   grid-template-columns: repeat(3, minmax(56px, 1fr));
   margin: 16px auto 0;
   max-width: 260px;
+  touch-action: none;
 }
 
+.maze-actions .button,
 .maze-controls button {
   align-items: center;
   background: #fffdf7;
@@ -494,8 +502,19 @@ h2 {
   font: 700 1.35rem/1 Georgia, "Times New Roman", serif;
   height: 54px;
   justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  user-select: none;
 }
 
+.maze-actions .button {
+  font: inherit;
+  height: auto;
+}
+
+.maze-actions .button:hover,
 .maze-controls button:hover {
   background: var(--accent-soft);
 }
