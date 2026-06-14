@@ -117,37 +117,33 @@ function initAdSlots() {
   document.documentElement.dataset.adsEnabled = runtime.enabled ? "true" : "false";
 
   document.querySelectorAll("[data-ad-slot]").forEach((slot) => {
+    const slotContainer = slot.closest(".ad-section, .ad-slot-row");
     if (!runtime.enabled) {
       slot.hidden = true;
+      if (slotContainer) {
+        slotContainer.hidden = true;
+      }
       return;
     }
 
     slot.hidden = false;
+    if (slotContainer) {
+      slotContainer.hidden = false;
+    }
     slot.dataset.adState = runtime.showPlaceholders ? "preview" : "idle";
 
     if (!runtime.showPlaceholders) {
       slot.replaceChildren();
       return;
     }
-
-    const slotName = slot.dataset.adSlot || "display-slot";
-    const format = slot.dataset.adFormat || "display";
-    const copy = adCopyFor(slotName);
-    slot.innerHTML = `
-      <div class="ad-slot__frame">
-        <span class="ad-slot__eyebrow">Ad Preview</span>
-        <strong class="ad-slot__title">${slotName}</strong>
-        <p class="ad-slot__copy">${copy}</p>
-        <p class="ad-slot__meta">Format: ${format} only. High-interruption placements stay off in this build.</p>
-      </div>
-    `;
+    slot.replaceChildren();
   });
 }
 
 function getAdRuntime() {
   const defaults = {
-    enabled: true,
-    showPlaceholders: true,
+    enabled: false,
+    showPlaceholders: false,
     socialBarEnabled: false,
   };
 
@@ -156,31 +152,6 @@ function getAdRuntime() {
     ...defaults,
     ...overrides,
   };
-}
-
-function adCopyFor(slotName) {
-  const copyMap = {
-    "home-inline-1":
-      "Reserved for a standard in-content unit after the featured game cards.",
-    "home-inline-2":
-      "Reserved for a second low-interruption display slot near the end of the homepage reading path.",
-    "maze-inline-1":
-      "Reserved for a display unit after the playable Arrow Maze area, never above the canvas or near controls.",
-    "maze-sidebar-1":
-      "Reserved for one desktop-only sidebar unit under Quick Answers.",
-    "maze-inline-2":
-      "Reserved for a post-FAQ display slot before related links.",
-    "category-inline-1":
-      "Reserved for a display slot between the category intro and the game grid.",
-    "category-inline-2":
-      "Reserved for a display slot after the category grid and before the closing explainer.",
-    "article-inline-1":
-      "Reserved for an in-content unit after the article intro paragraph.",
-    "article-inline-2":
-      "Reserved for a closing display slot after recommendations and before the footer.",
-  };
-
-  return copyMap[slotName] || "Reserved for a conservative in-content display placement.";
 }
 
 function initArrowMaze(root) {
