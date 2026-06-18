@@ -9,7 +9,11 @@
     "verify:arrow-maze": "node scripts/verify-arrow-maze.mjs",
     "analyze:arrow-maze": "node scripts/analyze-arrow-maze.mjs",
     "verify:production": "node scripts/verify-site.mjs --production",
-    "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory site",
-    "set-domain": "sh ./set-domain.sh"
+    "preview": "wrangler dev",
+    "set-domain": "sh ./set-domain.sh",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.102.0"
   }
 }
